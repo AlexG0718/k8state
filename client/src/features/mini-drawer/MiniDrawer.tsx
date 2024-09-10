@@ -127,6 +127,11 @@ export default function MiniDrawer() {
   const [selectedPage, setSelectedPage] = useState<string | null>("ClusterUI")
 
   const handleMenuSelect = (page: string) => {
+    if (page === "Github") {
+      window.open("https://github.com/oslabs-beta/k8state", "_blank")
+      return
+    }
+
     setSelectedPage(page)
     setOpen(false)
   }
@@ -178,6 +183,7 @@ export default function MiniDrawer() {
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
+          <h3 style={{ position: "absolute", left: "60px" }}>Navigation</h3>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
@@ -283,7 +289,7 @@ export default function MiniDrawer() {
         {selectedPage === "Logs" && <ClusterLogContainer />}
         {selectedPage === "Grafana Dashboard" && <GrafanaViewContainer />}
         {selectedPage === "Settings" && <Settings />}
-        {selectedPage === "Github" && <LandingPage />}
+        {selectedPage === "Github"}
       </main>
     </Box>
   )
