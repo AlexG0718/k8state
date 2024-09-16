@@ -103,8 +103,10 @@ export default function LogPage() {
                             marginLeft: "32px",
                             marginBottom: "16px",
                         }, variant: "contained", color: "error", type: "button", onClick: confirmDeleteAll, disabled: !clusterLogs || clusterLogs.length === 0 ? true : false, children: "Delete all Logs" })] }), clusterLogs?.map((clusterLog, i) => (_jsx(ClusterLog, { clusterLog: clusterLog }, `clusterLog:${i}`))), _jsx("div", { className: "alert-dialog", style: {
-                    display: "flex",
-                    justifyContent: "center",
+                    display: "none",
+                    position: "relative",
                     marginTop: "16px",
+                    left: "275px",
+                    top: "126px",
                 }, children: open === true && _jsx(AlertDialog, {}) })] }));
 }
